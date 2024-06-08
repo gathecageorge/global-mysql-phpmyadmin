@@ -9,7 +9,7 @@ x-logging: &logging
 services:
   mysql:
     <<: *logging
-    image: mysql
+    image: mysql:${MYSQL_VERSION}
     command: --default-authentication-plugin=mysql_native_password --sql_mode=""
     restart: always
     volumes:
@@ -21,7 +21,7 @@ services:
 
   phpmyadmin:
     <<: *logging
-    image: phpmyadmin
+    image: phpmyadmin:${PHPMYADMIN_VERSION}
     restart: always
     ports:
       - ${PHPMYADMIN_PORT}:80
